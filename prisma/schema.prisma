@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-generator client {
-  provider = "prisma-client-js"
-}
-=======
 
->>>>>>> f9551bc4b50a955ffca4f5c268599bb9aa385532
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -20,25 +14,13 @@ model Student {
   id             Int     @id @default(autoincrement())
   name           String
   age            Int
-<<<<<<< HEAD
-  levelQuran     String
-  phoneWhatsapp  String?
+  levelQuran     Level
+  phoneWhatsapp  String
   address        String
   degree         Int?
   ranking        Int?
   teacherId      Int?    // 👈 Foreign key
   teacher        Teacher? @relation(fields: [teacherId], references: [id])
-}
-
-
-=======
-  levelQuran     Level
-  phoneWhatsapp  String
-  address        String
-  degree         Int
-  ranking        Int
-  teacherId      Int     // 👈 Foreign key
-  teacher        Teacher @relation(fields: [teacherId], references: [id])
 }
 
 
@@ -50,4 +32,3 @@ enum Level {
   LEVEL_FIVE   // Level 5
   LEVEL_SIX    // Level 6
 }
->>>>>>> f9551bc4b50a955ffca4f5c268599bb9aa385532
