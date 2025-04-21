@@ -1,15 +1,34 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-generator client {
-  provider = "prisma-client-js"
-  output   = "../generated/prisma"
-}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Teacher {
+  id      Int       @id @default(autoincrement())
+  name    String
+  students Student[] // 👈 One-to-many: A teacher has many students
+}
+
+model Student {
+  id             Int     @id @default(autoincrement())
+  name           String
+  age            Int
+  levelQuran     Level
+  phoneWhatsapp  String
+  address        String
+  degree         Int
+  ranking        Int
+  teacherId      Int     // 👈 Foreign key
+  teacher        Teacher @relation(fields: [teacherId], references: [id])
+}
+
+
+enum Level {
+  LEVEL_ONE    // Level 1
+  LEVEL_TWO    // Level 2
+  LEVEL_THREE  // Level 3
+  LEVEL_FOUR   // Level 4
+  LEVEL_FIVE   // Level 5
+  LEVEL_SIX    // Level 6
 }
