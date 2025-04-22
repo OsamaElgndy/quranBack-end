@@ -7,8 +7,8 @@ export class LoginAdminService {
   constructor(private readonly jwtService: JwtService) {}
   create(createLoginAdminDto: CreateLoginAdminDto) {
     const { phone, password } = createLoginAdminDto;
-
-    if (phone == envVariables?.SECRETPHONE && password == envVariables?.SECRETPASSWORD) {
+       
+    if (phone != envVariables?.SECRETPHONE || password != envVariables?.SECRETPASSWORD) {
       throw new Error('رقم الهاتف أو كلمة المرور غير صحيحة');
     }
     const token = this.jwtService.sign({ phone });
