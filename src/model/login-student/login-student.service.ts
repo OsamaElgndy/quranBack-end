@@ -11,4 +11,10 @@ export class LoginStudentService {
       data: createStudentDto
     });
   }
+
+
+  async findAll() {
+    return this.prisma.student.findMany();
+  }
+
 }
