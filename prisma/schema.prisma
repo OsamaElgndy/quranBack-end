@@ -1,3 +1,6 @@
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
@@ -5,22 +8,20 @@ datasource db {
 }
 
 model Teacher {
-  id      Int       @id @default(autoincrement())
-  name    String
-  students Student[] // 👈 One-to-many: A teacher has many students
+  id       Int       @id @default(autoincrement())
+  name     String
+  students Student[]
 }
 
 model Student {
-  id             Int     @id @default(autoincrement())
-  name           String
-  age            Int
-  levelQuran     String
-  phoneWhatsapp  String
-  address        String
-  degree         Int?
-  ranking        Int?
-  teacherId      Int?    // 👈 Foreign key
-  teacher        Teacher? @relation(fields: [teacherId], references: [id])
+  id            Int      @id @default(autoincrement())
+  name          String
+  age           Int
+  levelQuran    String
+  address       String
+  phoneWhatsapp String?
+  degree        Int?
+  ranking       Int?
+  teacherId     Int?
+  teacher       Teacher? @relation(fields: [teacherId], references: [id])
 }
-
-

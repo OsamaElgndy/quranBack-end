@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import * as dotenv from 'dotenv'
+
 export const envVariables = {
  JWT_SECRET: process.env.JWT_SECRET,
  PORT: process.env.EMAIL_PORT,    // 3000
