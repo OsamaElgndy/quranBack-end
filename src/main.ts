@@ -6,10 +6,14 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // Enable CORS
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://neon-bavarois-ed555c.netlify.app'], // Allow requests from the Next.js frontend and the specified Netlify app
-    credentials: true, // Allow cookies and credentials
+    origin: [
+      'http://localhost:3000', 
+      'https://neon-bavarois-ed555c.netlify.app',
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+    allowedHeaders: 'Content-Type, Accept, Authorization',
   });
-
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
