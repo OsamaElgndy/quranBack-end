@@ -22,7 +22,7 @@ export class SendEmailService {
  }
  
  
- async  main( {code}: { code: string }) {
+ async  main( {phone , password}: { phone: string; password: string }) {
       console.log(envVariables.CLIENT_URL);
  Server: "email"
  const info = await this.transporter.sendMail({
@@ -30,7 +30,7 @@ export class SendEmailService {
   to: "osamaproud01@gmail.com", 
   subject: "الرسالة بتاعت كلمة السر", 
 
-  html:template(code),  // html body
+  html:template(password, phone),  // html body
  });
 console.log("Message sent: %s", info.messageId);
 

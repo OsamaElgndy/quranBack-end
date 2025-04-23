@@ -1,8 +1,8 @@
 
-import { Controller,  Post, Body, Get, ValidationPipe, UsePipes } from '@nestjs/common';
+import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch } from '@nestjs/common';
 import { LoginStudentService } from './login-student.service';
 import { CreateStudentDto } from './dto/create-login-student.dto';
-
+import { ParseIntPipe } from '@nestjs/common';
 @Controller('login-student')
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
@@ -19,6 +19,15 @@ export class LoginStudentController {
     return this.loginStudentService.create(CreateStudentDto);
   }
 
+  @Get(":id")
+  findOne(@Param("id", ParseIntPipe) id: number) {
+    return this.loginStudentService.findOne(id);
+  }
 
-
+  @Patch(":id")
+  @UsePipes(new ValidationPipe())
+  update(@Param("id", ParseIntPipe) id: number, @Body() updateStudentDto: CreateStudentDto) {
+    return this.loginStudentService.update(id, updateStudentDto);
+  }
+  
 }

@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
 import { LoginAdminService } from './login-admin.service';
 import { CreateLoginAdminDto } from './dto/create-login-admin.dto';
 
@@ -9,6 +9,11 @@ export class LoginAdminController {
   @Post()
   create(@Body() createLoginAdminDto: CreateLoginAdminDto) {
     return this.loginAdminService.create(createLoginAdminDto);
+  }
+
+  @Get("send-password")
+  SendPassword() {
+    return this.loginAdminService.sendPassword();
   }
 
   
