@@ -8,8 +8,8 @@ export class SendEmailService {
 
  private transporter: nodemailer.Transporter;
  constructor() {
-  if (!envVariables.EMAIL_PASS || !envVariables.EMAIL_USER) {
-    throw new Error('EMAIL_ACCOUNT and PASSWORD_EMAIL must be defined');
+  if (!envVariables.SECRETPASSWORD || !envVariables.SECRETPHONE) {
+    throw new Error('برجاء التأكد من وجود كلمة السر ورقم الهاتف في envVariables');
   }
   this.transporter = nodemailer.createTransport({
     service: "gmail",
