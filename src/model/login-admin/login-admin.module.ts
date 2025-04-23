@@ -1,13 +1,17 @@
-// src/model/login-admin/login-admin.module.ts
 import { Module } from '@nestjs/common';
 import { LoginAdminService } from './login-admin.service';
 import { LoginAdminController } from './login-admin.controller';
+import { envVariables } from 'src/common/constants/variables.service';
 import { JwtModule } from '@nestjs/jwt';
-import { SendEmailService } from 'src/common/sendEmail/mail.service'; // Import SendEmailService
-
+import { SendEmailService } from 'src/common/sendEmail/mail.service';
+console.log(envVariables)
 @Module({
-  providers: [LoginAdminService, SendEmailService], // Add SendEmailService to providers
+  imports: [
+    JwtModule.register({
+      secret: envVariables.JWT_SECRET, // Use your secret key
+    }),
+  ],
   controllers: [LoginAdminController],
-  imports: [JwtModule],
+  providers: [LoginAdminService, SendEmailService],
 })
 export class LoginAdminModule {}
