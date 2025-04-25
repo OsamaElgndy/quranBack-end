@@ -13,9 +13,29 @@ export class LoginStudentService {
   }
 
 
-  async findAll() {
-    return this.prisma.student.findMany();
+  async findAllisActive() {
+    return this.prisma.student.findMany(
+      {
+        where: {
+          isActive: true,
+        },
+      },
+    );
   } 
+
+  async findAllisNotActive() {
+    return this.prisma.student.findMany(
+      {
+        where: {
+          isActive: false,
+        },
+      },
+    );
+  } 
+
+
+
+
   async findOne(id: number) {
    
     // Check if the student exists
@@ -31,6 +51,8 @@ export class LoginStudentService {
     });
   }
 
+
+  
   async update(id: number, updateStudentDto: CreateStudentDto) {
     // Check if the student exists
     const student = await this.prisma.student.findUnique({
