@@ -13,16 +13,27 @@ export class LoginStudentService {
   }
 
 
-  async findAllisActive() {
-    return this.prisma.student.findMany(
-      {
+  async findAllisActive(skip: number = 0, take: number = 10) {
+    const [students, total] = await Promise.all([
+      this.prisma.student.findMany({
         where: {
           isActive: true,
         },
-      },
-    );
-  } 
-
+        skip,  // Number of records to skip (for pagination)
+        take,  // Number of records to return
+      }),
+      this.prisma.student.count({
+        where: {
+          isActive: true,
+        },
+      })
+    ]);
+  
+    return {
+      students,
+      total
+    };
+  }
   async findAllisNotActive() {
     return this.prisma.student.findMany(
       {

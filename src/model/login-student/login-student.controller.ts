@@ -1,5 +1,5 @@
 
-import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch } from '@nestjs/common';
+import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch, Query } from '@nestjs/common';
 import { LoginStudentService } from './login-student.service';
 import { CreateStudentDto } from './dto/create-login-student.dto';
 import { ParseIntPipe } from '@nestjs/common';
@@ -8,7 +8,10 @@ export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
  
   @Get("isActive")
-  findAllISAlive() {
+  async findAllActive(
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 10
+  ) {
     return this.loginStudentService.findAllisActive();
   }
  
