@@ -19,6 +19,7 @@ export class LoginStudentController {
     return this.loginStudentService.create(CreateStudentDto);
   }
 
+
   @Get(":id")
   findOne(@Param("id", ParseIntPipe) id: number) {
     return this.loginStudentService.findOne(id);
@@ -29,5 +30,6 @@ export class LoginStudentController {
   update(@Param("id", ParseIntPipe) id: number, @Body() updateStudentDto: CreateStudentDto) {
     return this.loginStudentService.update(id, updateStudentDto);
   }
+
   
 }

@@ -15,13 +15,16 @@ model Teacher {
 
 model Student {
   id            Int      @id @default(autoincrement())
-  name          String
+  name            String
   age           Int
   levelQuran    String
   address       String
-  phoneWhatsapp String?
+  phoneWhatsapp    String?
   degree        Int?
   ranking       Int?
   teacherId     Int?
   teacher       Teacher? @relation(fields: [teacherId], references: [id])
+CreatedAt    DateTime @default(now())
+  UpdatedAt    DateTime @updatedAt
+  isActive      Boolean  @default(true)
 }
