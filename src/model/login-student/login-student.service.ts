@@ -34,7 +34,7 @@ export class LoginStudentService {
   async findAllisNotActive(skip: number = 0, take: number = 10) {
     const students = await this.prisma.student.findMany({
       where: {
-        isActive: true,
+        isActive: false,
       },
       skip,  
       take,  
