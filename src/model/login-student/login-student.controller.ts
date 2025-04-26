@@ -7,10 +7,18 @@ import { ParseIntPipe } from '@nestjs/common';
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
  
-  @Get()
-  findAll() {
+  @Get("isActive")
+  findAllActive() {
     return this.loginStudentService.findAll();
   }
+
+   
+  @Get("isBlock")
+  findAllBlock() {
+    return this.loginStudentService.findAll();
+  }
+  
+
 
 
   @Post()

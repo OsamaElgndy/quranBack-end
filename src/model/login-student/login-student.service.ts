@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateStudentDto } from './dto/create-login-student.dto';
+import { CreateStudentDto } from './dto/create-login-student.dto';npx prisma db delete
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpException } from '@nestjs/common';
 @Injectable()
@@ -13,12 +13,11 @@ export class LoginStudentService {
   }
 
 
-  async findAll() {
+  async findAllActive() {
     return this.prisma.student.findMany();
   } 
   async findOne(id: number) {
    
-    // Check if the student exists
     const student = await this.prisma.student.findUnique({
       where: { id },
     });
@@ -28,11 +27,11 @@ export class LoginStudentService {
     }
     return this.prisma.student.findUnique({
       where: { id },
+
     });
   }
 
   async update(id: number, updateStudentDto: CreateStudentDto) {
-    // Check if the student exists
     const student = await this.prisma.student.findUnique({
       where: { id },
     });
