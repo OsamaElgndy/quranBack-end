@@ -21,10 +21,28 @@ export class LoginStudentService {
       skip,  
       take,  
     });
-    
     const total = await this.prisma.student.count({
       where: {
         isActive: true,
+      },
+    });
+    return {
+      students,
+      total
+    };
+  }
+  async findAllisNotActive(skip: number = 0, take: number = 10) {
+    const students = await this.prisma.student.findMany({
+      where: {
+        isActive: true,
+      },
+      skip,  
+      take,  
+    });
+    
+    const total = await this.prisma.student.count({
+      where: {
+        isActive: false,
       },
     });
   
@@ -32,16 +50,9 @@ export class LoginStudentService {
       students,
       total
     };
-  }
-  async findAllisNotActive() {
-    return this.prisma.student.findMany(
-      {
-        where: {
-          isActive: false,
-        },
-      },
-    );
   } 
+
+
   async findOne(id: number) {
    
     const student = await this.prisma.student.findUnique({

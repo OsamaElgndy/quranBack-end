@@ -16,8 +16,8 @@ export class LoginStudentController {
 
 
   @Get("isNotActive")
-  findAllisNotActive() {
-    return this.loginStudentService.findAllisNotActive();
+  findAllisNotActive(@Query("skip") skip: number = 0, @Query("take") take: number = 10) {
+    return this.loginStudentService.findAllisNotActive(skip , take );
   }
 
   @Patch('change/:id')
