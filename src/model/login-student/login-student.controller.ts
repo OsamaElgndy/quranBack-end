@@ -12,8 +12,8 @@ export class LoginStudentController {
   @Get("isActive")
   findAllisActive(
 
-    @Query('skip') skip: number = 0,
-    @Query('take') take: number = 10
+    @Query('skip', ParseIntPipe) skip: number = 0,
+    @Query('take', ParseIntPipe) take: number = 10
 
   ) {
     return this.loginStudentService.findAllisActive(skip, take);
@@ -22,8 +22,8 @@ export class LoginStudentController {
 
   @Get("isNotActive")
   findAllisNotActive(
-    @Query('skip') skip: number = 0,
-    @Query('take') take: number = 10
+    @Query('skip', ParseIntPipe) skip: number = 0,
+    @Query('take', ParseIntPipe) take: number = 10
   )
     {
     return this.loginStudentService.findAllisNotActive(skip , take );

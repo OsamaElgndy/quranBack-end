@@ -18,6 +18,9 @@ export class LoginStudentService {
       where: {
         isActive: true,
       },
+      orderBy: {
+        CreatedAt: 'desc',
+      },
       skip,  
       take,  
     });
@@ -35,6 +38,9 @@ export class LoginStudentService {
     const students = await this.prisma.student.findMany({
       where: {
         isActive: false,
+      },
+      orderBy: {
+        CreatedAt: 'desc',
       },
       skip,  
       take,  
