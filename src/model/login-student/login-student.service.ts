@@ -74,6 +74,17 @@ export class LoginStudentService {
   }
 
 
-  
+  async change(id: number) {
+    const student = await this.prisma.student.findUnique({ where: { id } });
+    if (!student) {
+      throw new HttpException('لم يتم العثور على الطالب', 404);
+    }
+    return this.prisma.student.update({
+      where: { id },
+      data: {
+        isActive: !student?.isActive,
+      },
+    });
+  }
 
 }

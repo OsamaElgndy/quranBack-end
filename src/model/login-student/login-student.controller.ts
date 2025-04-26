@@ -20,6 +20,11 @@ export class LoginStudentController {
     return this.loginStudentService.findAllisNotActive();
   }
 
+  @Patch('change/:id')
+  change(@Param("id", ParseIntPipe) id: number) {
+    return this.loginStudentService.change(id);
+  }
+
 
   @Get(":id")
   findOne(@Param("id", ParseIntPipe) id: number) {
