@@ -11,12 +11,11 @@ export class LoginStudentController {
 
   @Get("isActive")
   findAllisActive(
-
     @Query('skip', ParseIntPipe) skip: number = 0,
     @Query('take', ParseIntPipe) take: number = 10
 
   ) {
-    return this.loginStudentService.findAllisActive(skip, take);
+    return this.loginStudentService.findAllisActive(+skip, +take);
   }
 
 

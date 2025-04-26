@@ -29,7 +29,7 @@ async function main() {
         degree: faker.datatype.boolean() ? faker.number.int({ min: 70, max: 100 }) : null,
         ranking: faker.datatype.boolean() ? faker.number.int({ min: 1, max: 20 }) : null,
         teacherId: null,
-        isActive : false,
+        isActive : true,
       },
     });
   }

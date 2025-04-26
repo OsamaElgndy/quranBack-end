@@ -25,6 +25,7 @@ model Student {
   teacherId     Int?
   teacher       Teacher? @relation(fields: [teacherId], references: [id])
   CreatedAt     DateTime @default(now())
-  UpdatedAt     DateTime @updatedAt
+  UpdatedAt     DateTime @updatedAt 
   isActive      Boolean  @default(true)
+  
 }
