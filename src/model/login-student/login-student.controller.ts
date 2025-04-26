@@ -1,5 +1,5 @@
 
-import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch } from '@nestjs/common';
+import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch, Query } from '@nestjs/common';
 import { LoginStudentService } from './login-student.service';
 import { CreateStudentDto } from './dto/create-login-student.dto';
 import { ParseIntPipe } from '@nestjs/common';
@@ -8,20 +8,6 @@ export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
  
   @Get("isActive")
-  findAllActive() {
-    return this.loginStudentService.findAll();
-  }
-
-   
-  @Get("isBlock")
-  findAllBlock() {
-    return this.loginStudentService.findAll();
-  }
-  
-
-
-
-  @Post()
   @UsePipes(new ValidationPipe())
   create(@Body() CreateStudentDto: CreateStudentDto) {
     return this.loginStudentService.create(CreateStudentDto);
