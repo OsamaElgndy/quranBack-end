@@ -7,10 +7,17 @@ import { ParseIntPipe } from '@nestjs/common';
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
  
+
+
   @Get("isActive")
-  @UsePipes(new ValidationPipe())
-  create(@Body() CreateStudentDto: CreateStudentDto) {
-    return this.loginStudentService.create(CreateStudentDto);
+  findAllisActive(@Query("skip") skip: number = 0, @Query("take") take: number = 10) {
+    return this.loginStudentService.findAllisActive(skip, take);
+  }
+
+
+  @Get("isNotActive")
+  findAllisNotActive() {
+    return this.loginStudentService.findAllisNotActive();
   }
 
 
@@ -25,5 +32,10 @@ export class LoginStudentController {
     return this.loginStudentService.update(id, updateStudentDto);
   }
 
+  @Post()
+  @UsePipes(new ValidationPipe())
+  create(@Body() CreateStudentDto: CreateStudentDto) {
+    return this.loginStudentService.create(CreateStudentDto);
+  }
   
 }
