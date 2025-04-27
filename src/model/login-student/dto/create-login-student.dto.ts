@@ -65,12 +65,12 @@ export class CreateStudentDto {
 
 export class FindAllStudentsDto {
   @IsOptional()
-  @IsInt()
-  skip?: number;
+  @IsString()
+  skip?: string;
 
   @IsOptional()
-  @IsInt()
-  take?: number;
+  @IsString()
+  take?: string;
 
 
   @IsOptional()

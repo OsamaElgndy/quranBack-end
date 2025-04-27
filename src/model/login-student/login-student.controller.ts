@@ -11,7 +11,7 @@ export class LoginStudentController {
   findAll(@Query() query: FindAllStudentsDto) {
     const { skip = 0, take = 10, ...levelQuran } = query;
 
-    return this.loginStudentService.findAll(skip, take, levelQuran );
+    return this.loginStudentService.findAll(+skip, +take, levelQuran );
   }
 
   @Get("isActive")
