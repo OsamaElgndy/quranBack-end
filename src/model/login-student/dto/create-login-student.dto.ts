@@ -62,3 +62,14 @@ export class CreateStudentDto {
   @IsInt()
   teacherId?: number;
 }
+
+export class ConditionStudentDto {
+
+  @IsOptional()
+  @IsString()
+  condition?: string;
+
+}
+
+
+

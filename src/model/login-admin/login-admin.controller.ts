@@ -16,6 +16,6 @@ export class LoginAdminController {
     return this.loginAdminService.sendPassword();
   }
 
-  
+
 
 }

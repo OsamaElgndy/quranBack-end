@@ -1,12 +1,21 @@
 
 import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch, Query } from '@nestjs/common';
 import { LoginStudentService } from './login-student.service';
-import { CreateStudentDto } from './dto/create-login-student.dto';
+import { CreateStudentDto ,ConditionStudentDto } from './dto/create-login-student.dto';
 import { ParseIntPipe } from '@nestjs/common';
 @Controller('login-student')
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
  
+@Get("findAll")
+findAll(
+  @Query('skip', ParseIntPipe) skip: number = 0,
+  @Query('take', ParseIntPipe) take: number = 10,
+  @Body() condition: ConditionStudentDto
+)
+{
+  return this.loginStudentService.findAll(skip, take , condition);
+}
 
 
   @Get("isActive")
@@ -15,7 +24,7 @@ export class LoginStudentController {
     @Query('take', ParseIntPipe) take: number = 10
 
   ) {
-    return this.loginStudentService.findAllisActive(+skip, +take);
+    return this.loginStudentService.findAllisActive(skip, take);
   }
 
 
@@ -51,4 +60,6 @@ export class LoginStudentController {
     return this.loginStudentService.create(CreateStudentDto);
   }
   
+
+
 }

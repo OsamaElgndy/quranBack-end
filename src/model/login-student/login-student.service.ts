@@ -1,11 +1,39 @@
 import { Injectable } from '@nestjs/common';
-import { CreateStudentDto } from './dto/create-login-student.dto'
+import { CreateStudentDto , ConditionStudentDto  } from './dto/create-login-student.dto'
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpException } from '@nestjs/common';
+
 @Injectable()
 export class LoginStudentService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService ) {}
 
+  async findAll(skip: number = 0, take: number = 10 ,condition : ConditionStudentDto ){
+    const students = await this.prisma.student.findMany({
+      where: {
+        levelQuran: condition?.condition || undefined,
+        isActive: true,
+      },
+      orderBy: {
+        CreatedAt: 'desc',
+      },
+      skip,  
+      take,  
+    });
+    const total = await this.prisma.student.count({
+      where: {
+        levelQuran: condition?.condition || undefined,
+        isActive: true,
+      },
+      orderBy: {
+        CreatedAt: 'desc',
+      },
+    });
+    return {
+      students,
+      total
+    };
+    
+  }
   async create(createStudentDto: CreateStudentDto) {
     return this.prisma.student.create({
       data: createStudentDto
@@ -103,5 +131,8 @@ export class LoginStudentService {
       },
     });
   }
+
+
+
 
 }

@@ -21,4 +21,7 @@ export class LoginAdminService {
     this.SendEmailService.main({ phone: SECRETPHONE, password: SECRETPASSWORD } as string | any);
     return { message: 'تم ارسال كلمة المرور بنجاح', password: SECRETPASSWORD };
   }
+
+
+
 }
