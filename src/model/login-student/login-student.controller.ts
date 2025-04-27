@@ -6,17 +6,17 @@ import { ParseIntPipe } from '@nestjs/common';
 @Controller('login-student')
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
- 
-@Get("findAll")
-findAll(
-  @Query('skip', ParseIntPipe) skip: number = 0,
-  @Query('take', ParseIntPipe) take: number = 10,
-  @Body() condition: ConditionStudentDto
-)
-{
-  return this.loginStudentService.findAll(skip, take , condition);
-}
 
+
+  @Get("findAll")
+  
+  findAll(
+    @Query('skip', ParseIntPipe) skip: number = 0,
+    @Query('take', ParseIntPipe) take: number = 10,
+    @Query() condition: ConditionStudentDto,
+  ) {
+    return this.loginStudentService.findAll(skip, take, condition);
+  }
 
   @Get("isActive")
   findAllisActive(
