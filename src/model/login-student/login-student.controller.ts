@@ -1,21 +1,17 @@
 
 import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch, Query } from '@nestjs/common';
 import { LoginStudentService } from './login-student.service';
-import { CreateStudentDto ,ConditionStudentDto } from './dto/create-login-student.dto';
+import { CreateStudentDto ,FindAllStudentsDto } from './dto/create-login-student.dto';
 import { ParseIntPipe } from '@nestjs/common';
 @Controller('login-student')
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
 
+  @Get('findAll')
+  findAll(@Query() query: FindAllStudentsDto) {
+    const { skip = 0, take = 10, ...levelQuran } = query;
 
-  @Get("findAll")
-  
-  findAll(
-    @Query('skip', ParseIntPipe) skip: number = 0,
-    @Query('take', ParseIntPipe) take: number = 10,
-    @Query() condition: ConditionStudentDto,
-  ) {
-    return this.loginStudentService.findAll(skip, take, condition);
+    return this.loginStudentService.findAll(skip, take, levelQuran );
   }
 
   @Get("isActive")

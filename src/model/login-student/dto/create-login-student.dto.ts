@@ -63,13 +63,20 @@ export class CreateStudentDto {
   teacherId?: number;
 }
 
-export class ConditionStudentDto {
+export class FindAllStudentsDto {
+  @IsOptional()
+  @IsInt()
+  skip?: number;
+
+  @IsOptional()
+  @IsInt()
+  take?: number;
+
 
   @IsOptional()
   @IsString()
-  condition?: string;
+  levelQuran?: string;
 
 }
-
 
 

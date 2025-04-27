@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateStudentDto , ConditionStudentDto  } from './dto/create-login-student.dto'
+import { CreateStudentDto ,FindAllStudentsDto  } from './dto/create-login-student.dto'
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpException } from '@nestjs/common';
 
@@ -7,10 +7,10 @@ import { HttpException } from '@nestjs/common';
 export class LoginStudentService {
   constructor(private readonly prisma: PrismaService ) {}
 
-  async findAll(skip: number = 0, take: number = 10 ,condition : ConditionStudentDto ){
+  async findAll(skip: number = 0, take: number = 10 ,levelQuran? : FindAllStudentsDto) {
     const students = await this.prisma.student.findMany({
       where: {
-        levelQuran: condition?.condition || undefined,
+        levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
       },
       orderBy: {
@@ -21,7 +21,7 @@ export class LoginStudentService {
     });
     const total = await this.prisma.student.count({
       where: {
-        levelQuran: condition?.condition || undefined,
+        levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
       },
       orderBy: {
