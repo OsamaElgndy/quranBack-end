@@ -8,11 +8,9 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000', 
-      'https://neon-bavarois-ed555c.netlify.app',
+      'https://horizontal-greta-osamaelgndy-b3a94cc6.koyeb.app'
     ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-    allowedHeaders: 'Content-Type, Accept, Authorization',
   });
   app.setGlobalPrefix('api/v1');
   app.useGlobalPipes(new ValidationPipe({
