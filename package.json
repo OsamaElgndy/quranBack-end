@@ -6,9 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "build": "tsc",
     "start": "node --max-old-space-size=512 main.js",
     "prisma:seed": "ts-node prisma/seed.ts",
-    "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
