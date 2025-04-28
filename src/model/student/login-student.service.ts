@@ -2,10 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { CreateStudentDto ,FindAllStudentsDto  } from './dto/create-login-student.dto'
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpException } from '@nestjs/common';
+import { google } from 'googleapis';
 
 @Injectable()
 export class LoginStudentService {
-  constructor(private readonly prisma: PrismaService ) {}
+  constructor(private readonly prisma: PrismaService ,  private readonly spreadsheetId = '1clGzE2sY07HwaX7uCufF8UDKCQTubu1DkQ4__9mCq3Y' ,   private readonly auth = new google.auth.GoogleAuth({
+    keyFile: 'credentials.json',
+    scopes: 'https://www.googleapis.com/auth/spreadsheets',
+  })
+   ) {}
+
+  private async getClient() {
+    const client = await this.auth.getClient();
+    return google.sheets({ version: 'v4', auth: client as any });
+  }
 
   async findAll(skip: number = 0, take: number = 10 ,levelQuran? : FindAllStudentsDto) {
     const students = await this.prisma.student.findMany({
@@ -35,6 +45,28 @@ export class LoginStudentService {
     
   }
   async create(createStudentDto: CreateStudentDto) {
+      const length = await this.prisma.student.count()
+      const {address ,age ,levelQuran ,name ,degree ,phoneWhatsapp ,ranking  } = createStudentDto
+      console.log('Fetching all students...');
+      const sheets = await this.getClient();
+      const request = {
+        spreadsheetId: this.spreadsheetId,
+        range: 'Sheet1!A1:F1',
+        valueInputOption: 'RAW',
+        resource: {
+          values: [
+            [length + 1, name, phoneWhatsapp, address, age, levelQuran, degree, ranking],
+          ],
+        },
+      };
+      try {
+        const response = await sheets.spreadsheets.values.append(request);
+        console.log('Data appended successfully:');
+      } catch (error) {
+        console.error('Error appending data:', error);
+      }
+
+
     return this.prisma.student.create({
       data: createStudentDto
     });

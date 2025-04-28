@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { LoginStudentModule } from './model/login-student/login-student.module';
-import { LoginAdminModule } from './model/login-admin/login-admin.module';
+import { LoginStudentModule } from './model/student/login-student.module';
+import { LoginAdminModule } from './model/admin/login-admin.module';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
+import { TeatcherModule } from './model/teatcher/teatcher.module';
 
 @Module({
-  imports: [LoginStudentModule, LoginAdminModule],
+  imports: [LoginStudentModule, LoginAdminModule, TeatcherModule],
   controllers: [AppController],
   providers: [AppService]
 })
