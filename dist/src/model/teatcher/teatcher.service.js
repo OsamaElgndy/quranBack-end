@@ -17,6 +17,15 @@ let TeatcherService = class TeatcherService {
     constructor(prisma) {
         this.prisma = prisma;
     }
+    async findName() {
+        const teatchers = await this.prisma.teacher.findMany({
+            select: {
+                id: true,
+                name: true,
+            },
+        });
+        return teatchers;
+    }
     async findAll() {
         const teatchers = await this.prisma.teacher.findMany({
             include: {

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { LoginStudentModule } from './model/student/login-student.module';
+import { LoginStudentModule } from './model/student/student.module';
 import { LoginAdminModule } from './model/admin/login-admin.module';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';

@@ -1,7 +1,7 @@
 
 import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch, Query } from '@nestjs/common';
-import { LoginStudentService } from './login-student.service';
-import { CreateStudentDto ,FindAllStudentsDto } from './dto/create-login-student.dto';
+import { LoginStudentService } from './student.service';
+import { CreateStudentDto ,FindAllStudentsDto, UpdateStudentDto } from './dto/create-student.dto';
 import { ParseIntPipe } from '@nestjs/common';
 @Controller('login-student')
 export class LoginStudentController {
@@ -45,13 +45,11 @@ export class LoginStudentController {
   }
 
   @Patch(":id")
-  @UsePipes(new ValidationPipe())
-  update(@Param("id", ParseIntPipe) id: number, @Body() updateStudentDto: CreateStudentDto) {
-    return this.loginStudentService.update(id, updateStudentDto);
+  update(@Param("id", ParseIntPipe) id: number, @Body() updateStudentDto: UpdateStudentDto) {
+    return this.loginStudentService.update(id,updateStudentDto); 
   }
 
   @Post()
-  @UsePipes(new ValidationPipe())
   create(@Body() CreateStudentDto: CreateStudentDto) {
     return this.loginStudentService.create(CreateStudentDto);
   }

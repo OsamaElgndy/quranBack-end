@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateStudentDto, FindAllStudentsDto } from './dto/create-login-student.dto'
+import { CreateStudentDto, FindAllStudentsDto, UpdateStudentDto } from './dto/create-student.dto'
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpException } from '@nestjs/common';
 import { google } from 'googleapis';
@@ -140,7 +140,7 @@ export class LoginStudentService {
 
 
 
-  async update(id: number, updateStudentDto: CreateStudentDto) {
+  async update(id: number, updateStudentDto: UpdateStudentDto) {
     const student = await this.prisma.student.findUnique({
       where: { id },
     });

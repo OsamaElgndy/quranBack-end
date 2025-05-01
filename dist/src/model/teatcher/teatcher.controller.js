@@ -21,6 +21,9 @@ let TeatcherController = class TeatcherController {
     constructor(teatcherService) {
         this.teatcherService = teatcherService;
     }
+    findByName() {
+        return this.teatcherService.findName();
+    }
     findAll() {
         return this.teatcherService.findAll();
     }
@@ -35,6 +38,12 @@ let TeatcherController = class TeatcherController {
     }
 };
 exports.TeatcherController = TeatcherController;
+__decorate([
+    (0, common_1.Get)("find-name"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], TeatcherController.prototype, "findByName", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),

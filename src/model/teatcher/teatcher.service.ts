@@ -7,6 +7,20 @@ export class TeatcherService {
   constructor(private readonly prisma: PrismaService) {}
 
 
+
+async findName() {
+
+  const teatchers = await this.prisma.teacher.findMany({
+
+    select: {
+     id: true,
+     name: true,
+    },
+  });
+  return teatchers;
+}
+
+
   async findAll() {
     const teatchers = await this.prisma.teacher.findMany({
       include: {

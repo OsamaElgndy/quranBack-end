@@ -7,6 +7,10 @@ import { UpdateTeatcherDto } from './dto/update-teatcher.dto';
 export class TeatcherController {
   constructor(private readonly teatcherService: TeatcherService) {}
 
+ @Get("find-name")
+  findByName() {
+    return this.teatcherService.findName();
+  }
 
   @Get()
   findAll() {

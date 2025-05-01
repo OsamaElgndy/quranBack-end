@@ -3,6 +3,10 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export declare class TeatcherService {
     private readonly prisma;
     constructor(prisma: PrismaService);
+    findName(): Promise<{
+        name: string;
+        id: number;
+    }[]>;
     findAll(): Promise<({
         students: {
             name: string;

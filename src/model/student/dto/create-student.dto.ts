@@ -1,3 +1,4 @@
+import { PartialType } from '@nestjs/mapped-types';
 import {
   IsString,
   IsNotEmpty,
@@ -80,3 +81,4 @@ export class FindAllStudentsDto {
 }
 
 
+export class UpdateStudentDto extends PartialType(CreateStudentDto) {}

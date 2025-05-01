@@ -3,6 +3,10 @@ import { UpdateTeatcherDto } from './dto/update-teatcher.dto';
 export declare class TeatcherController {
     private readonly teatcherService;
     constructor(teatcherService: TeatcherService);
+    findByName(): Promise<{
+        name: string;
+        id: number;
+    }[]>;
     findAll(): Promise<({
         students: {
             name: string;
