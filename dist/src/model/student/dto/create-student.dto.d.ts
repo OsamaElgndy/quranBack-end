@@ -7,6 +7,9 @@ export declare class CreateStudentDto {
     degree?: number;
     ranking?: number;
     teacherId?: number;
+    createdAt?: string;
+    updatedAt?: string;
+    isActive?: boolean;
 }
 export declare class FindAllStudentsDto {
     skip?: string;

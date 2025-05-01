@@ -9,6 +9,7 @@ import {
   IsEnum,
   IsOptional,
   IsIn,
+  IsBoolean,
 } from 'class-validator';
 
 
@@ -62,6 +63,18 @@ export class CreateStudentDto {
   @IsOptional()
   @IsInt()
   teacherId?: number;
+
+  @IsOptional()
+  @IsString() 
+  createdAt?: string;
+  
+  @IsOptional()
+  @IsString()
+  updatedAt?: string;
+  
+  @IsOptional()
+  @IsIn([true, false]) // or use @IsBoolean() if using transform: true
+  isActive?: boolean;
 }
 
 export class FindAllStudentsDto {
