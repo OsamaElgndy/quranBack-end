@@ -4,7 +4,6 @@ import { LoginAdminController } from './login-admin.controller';
 import { envVariables } from 'src/common/constants/variables.service';
 import { JwtModule } from '@nestjs/jwt';
 import { SendEmailService } from 'src/common/sendEmail/mail.service';
-console.log(envVariables)
 @Module({
   imports: [
     JwtModule.register({

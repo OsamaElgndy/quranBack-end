@@ -26,7 +26,14 @@ export class LoginStudentService {
       where: {
         levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
+
       },
+      include: {
+        teacher: {
+          select: { name: true, id: true }
+        }
+      },
+
       orderBy: {
         CreatedAt: 'desc',
       },
@@ -65,7 +72,6 @@ export class LoginStudentService {
     };
     try {
       const response = await sheets.spreadsheets.values.append(request);
-      console.log('Data appended successfully:');
     } catch (error) {
       console.error('Error appending data:', error);
     }

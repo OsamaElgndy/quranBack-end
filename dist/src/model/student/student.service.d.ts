@@ -7,7 +7,12 @@ export declare class LoginStudentService {
     private readonly auth;
     private getClient;
     findAll(skip?: number, take?: number, levelQuran?: FindAllStudentsDto): Promise<{
-        students: {
+        students: ({
+            teacher: {
+                id: number;
+                name: string;
+            } | null;
+        } & {
             id: number;
             name: string;
             age: number;
@@ -20,7 +25,7 @@ export declare class LoginStudentService {
             CreatedAt: Date;
             UpdatedAt: Date;
             isActive: boolean;
-        }[];
+        })[];
         total: number;
     }>;
     create(createStudentDto: CreateStudentDto): Promise<{

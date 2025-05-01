@@ -4,11 +4,16 @@ export declare class LoginStudentController {
     private readonly loginStudentService;
     constructor(loginStudentService: LoginStudentService);
     findAll(query: FindAllStudentsDto): Promise<{
-        students: {
-            levelQuran: string;
+        students: ({
+            teacher: {
+                id: number;
+                name: string;
+            } | null;
+        } & {
             id: number;
             name: string;
             age: number;
+            levelQuran: string;
             address: string;
             phoneWhatsapp: string | null;
             degree: number | null;
@@ -17,15 +22,15 @@ export declare class LoginStudentController {
             CreatedAt: Date;
             UpdatedAt: Date;
             isActive: boolean;
-        }[];
+        })[];
         total: number;
     }>;
     findAllisActive(skip?: number, take?: number): Promise<{
         students: {
-            levelQuran: string;
             id: number;
             name: string;
             age: number;
+            levelQuran: string;
             address: string;
             phoneWhatsapp: string | null;
             degree: number | null;
@@ -39,10 +44,10 @@ export declare class LoginStudentController {
     }>;
     findAllisNotActive(skip?: number, take?: number): Promise<{
         students: {
-            levelQuran: string;
             id: number;
             name: string;
             age: number;
+            levelQuran: string;
             address: string;
             phoneWhatsapp: string | null;
             degree: number | null;
@@ -55,10 +60,10 @@ export declare class LoginStudentController {
         total: number;
     }>;
     change(id: number): Promise<{
-        levelQuran: string;
         id: number;
         name: string;
         age: number;
+        levelQuran: string;
         address: string;
         phoneWhatsapp: string | null;
         degree: number | null;
@@ -69,10 +74,10 @@ export declare class LoginStudentController {
         isActive: boolean;
     }>;
     findOne(id: number): Promise<{
-        levelQuran: string;
         id: number;
         name: string;
         age: number;
+        levelQuran: string;
         address: string;
         phoneWhatsapp: string | null;
         degree: number | null;
@@ -83,10 +88,10 @@ export declare class LoginStudentController {
         isActive: boolean;
     } | null>;
     update(id: number, updateStudentDto: UpdateStudentDto): Promise<{
-        levelQuran: string;
         id: number;
         name: string;
         age: number;
+        levelQuran: string;
         address: string;
         phoneWhatsapp: string | null;
         degree: number | null;
@@ -97,10 +102,10 @@ export declare class LoginStudentController {
         isActive: boolean;
     }>;
     create(CreateStudentDto: CreateStudentDto): Promise<{
-        levelQuran: string;
         id: number;
         name: string;
         age: number;
+        levelQuran: string;
         address: string;
         phoneWhatsapp: string | null;
         degree: number | null;

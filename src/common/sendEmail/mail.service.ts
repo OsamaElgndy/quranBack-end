@@ -23,7 +23,6 @@ export class SendEmailService {
  
  
  async  main( {phone , password}: { phone: string; password: string }) {
-      console.log(envVariables.CLIENT_URL);
  Server: "email"
  const info = await this.transporter.sendMail({
   from: envVariables.EMAIL_USER, 

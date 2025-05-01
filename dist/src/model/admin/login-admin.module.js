@@ -13,7 +13,6 @@ const login_admin_controller_1 = require("./login-admin.controller");
 const variables_service_1 = require("../../common/constants/variables.service");
 const jwt_1 = require("@nestjs/jwt");
 const mail_service_1 = require("../../common/sendEmail/mail.service");
-console.log(variables_service_1.envVariables);
 let LoginAdminModule = class LoginAdminModule {
 };
 exports.LoginAdminModule = LoginAdminModule;

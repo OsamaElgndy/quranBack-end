@@ -30,7 +30,6 @@ let SendEmailService = class SendEmailService {
         });
     }
     async main({ phone, password }) {
-        console.log(variables_service_1.envVariables.CLIENT_URL);
         Server: "email";
         const info = await this.transporter.sendMail({
             from: variables_service_1.envVariables.EMAIL_USER,
