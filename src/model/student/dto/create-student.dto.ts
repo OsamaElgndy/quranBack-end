@@ -73,7 +73,7 @@ export class CreateStudentDto {
   updatedAt?: string;
   
   @IsOptional()
-  @IsIn([true, false]) // or use @IsBoolean() if using transform: true
+  @IsIn([true, false]) 
   isActive?: boolean;
 }
 

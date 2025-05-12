@@ -17,10 +17,10 @@ export declare class TeatcherController {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
+            isActive: boolean;
             id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
         }[];
     } & {
         name: string;
