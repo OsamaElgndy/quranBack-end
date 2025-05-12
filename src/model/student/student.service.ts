@@ -28,14 +28,14 @@ export class LoginStudentService {
         isActive: true,
 
       },
+      
       include: {
         teacher: {
           select: { name: true, id: true }
         }
       },
-
       orderBy: {
-        CreatedAt: 'desc',
+       ranking:"asc"
       },
       skip,
       take,
@@ -45,9 +45,7 @@ export class LoginStudentService {
         levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
       },
-      orderBy: {
-        CreatedAt: 'desc',
-      },
+  
     });
     return {
       students,
@@ -89,7 +87,7 @@ export class LoginStudentService {
         isActive: true,
       },
       orderBy: {
-        CreatedAt: 'desc',
+        id: 'desc',
       },
       skip,
       take,
@@ -110,8 +108,9 @@ export class LoginStudentService {
         isActive: false,
       },
       orderBy: {
-        CreatedAt: 'desc',
+        id: 'desc',
       },
+  
       skip,
       take,
     });

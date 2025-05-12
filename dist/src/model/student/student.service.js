@@ -40,7 +40,7 @@ let LoginStudentService = class LoginStudentService {
                 }
             },
             orderBy: {
-                CreatedAt: 'desc',
+                ranking: "asc"
             },
             skip,
             take,
@@ -49,9 +49,6 @@ let LoginStudentService = class LoginStudentService {
             where: {
                 levelQuran: levelQuran?.levelQuran || undefined,
                 isActive: true,
-            },
-            orderBy: {
-                CreatedAt: 'desc',
             },
         });
         return {
@@ -90,7 +87,7 @@ let LoginStudentService = class LoginStudentService {
                 isActive: true,
             },
             orderBy: {
-                CreatedAt: 'desc',
+                id: 'desc',
             },
             skip,
             take,
@@ -111,7 +108,7 @@ let LoginStudentService = class LoginStudentService {
                 isActive: false,
             },
             orderBy: {
-                CreatedAt: 'desc',
+                id: 'desc',
             },
             skip,
             take,
