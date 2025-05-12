@@ -7,8 +7,8 @@ export declare class CreateStudentDto {
     degree?: number;
     ranking?: number;
     teacherId?: number;
-    createdAt?: string;
-    updatedAt?: string;
+    CreatedAt?: string;
+    UpdatedAt?: string;
     isActive?: boolean;
 }
 export declare class FindAllStudentsDto {

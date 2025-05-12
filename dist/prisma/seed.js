@@ -25,7 +25,7 @@ async function main() {
         degree: faker_1.fakerAR.datatype.boolean() ? faker_1.fakerAR.number.int({ min: 70, max: 100 }) : null,
         ranking: faker_1.fakerAR.datatype.boolean() ? faker_1.fakerAR.number.int({ min: 1, max: 20 }) : null,
         teacherId: null,
-        isActive: false,
+        isActive: true,
     }));
     await prisma.student.createMany({
         data: students,

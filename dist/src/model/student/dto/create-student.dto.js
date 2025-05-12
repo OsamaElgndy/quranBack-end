@@ -21,8 +21,8 @@ class CreateStudentDto {
     degree;
     ranking;
     teacherId;
-    createdAt;
-    updatedAt;
+    CreatedAt;
+    UpdatedAt;
     isActive;
 }
 exports.CreateStudentDto = CreateStudentDto;
@@ -84,12 +84,12 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], CreateStudentDto.prototype, "createdAt", void 0);
+], CreateStudentDto.prototype, "CreatedAt", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], CreateStudentDto.prototype, "updatedAt", void 0);
+], CreateStudentDto.prototype, "UpdatedAt", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsIn)([true, false]),

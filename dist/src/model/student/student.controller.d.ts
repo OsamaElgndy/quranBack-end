@@ -18,10 +18,10 @@ export declare class LoginStudentController {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
-            isActive: boolean;
-            id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
+            isActive: boolean;
+            id: number;
         })[];
         total: number;
     }>;
@@ -35,10 +35,10 @@ export declare class LoginStudentController {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
-            isActive: boolean;
-            id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
+            isActive: boolean;
+            id: number;
         }[];
         total: number;
     }>;
@@ -52,10 +52,10 @@ export declare class LoginStudentController {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
-            isActive: boolean;
-            id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
+            isActive: boolean;
+            id: number;
         }[];
         total: number;
     }>;
@@ -68,10 +68,10 @@ export declare class LoginStudentController {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     }>;
     findOne(id: number): Promise<{
         name: string;
@@ -82,10 +82,10 @@ export declare class LoginStudentController {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     } | null>;
     update(id: number, updateStudentDto: UpdateStudentDto): Promise<{
         name: string;
@@ -96,10 +96,10 @@ export declare class LoginStudentController {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     }>;
     create(CreateStudentDto: CreateStudentDto): Promise<{
         name: string;
@@ -110,9 +110,9 @@ export declare class LoginStudentController {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     }>;
 }

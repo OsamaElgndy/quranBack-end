@@ -66,15 +66,19 @@ export class CreateStudentDto {
 
   @IsOptional()
   @IsString() 
-  createdAt?: string;
+  CreatedAt?: string;
   
   @IsOptional()
   @IsString()
-  updatedAt?: string;
+  UpdatedAt?: string;
   
   @IsOptional()
   @IsIn([true, false]) 
   isActive?: boolean;
+
+
+
+
 }
 
 export class FindAllStudentsDto {

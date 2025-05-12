@@ -21,10 +21,10 @@ export declare class LoginStudentService {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
-            isActive: boolean;
-            id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
+            isActive: boolean;
+            id: number;
         })[];
         total: number;
     }>;
@@ -37,10 +37,10 @@ export declare class LoginStudentService {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     }>;
     findAllisActive(skip?: number, take?: number): Promise<{
         students: {
@@ -52,10 +52,10 @@ export declare class LoginStudentService {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
-            isActive: boolean;
-            id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
+            isActive: boolean;
+            id: number;
         }[];
         total: number;
     }>;
@@ -69,10 +69,10 @@ export declare class LoginStudentService {
             degree: number | null;
             ranking: number | null;
             teacherId: number | null;
-            isActive: boolean;
-            id: number;
             CreatedAt: Date;
             UpdatedAt: Date;
+            isActive: boolean;
+            id: number;
         }[];
         total: number;
     }>;
@@ -85,10 +85,10 @@ export declare class LoginStudentService {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     } | null>;
     update(id: number, updateStudentDto: UpdateStudentDto): Promise<{
         name: string;
@@ -99,10 +99,10 @@ export declare class LoginStudentService {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     }>;
     change(id: number): Promise<{
         name: string;
@@ -113,9 +113,9 @@ export declare class LoginStudentService {
         degree: number | null;
         ranking: number | null;
         teacherId: number | null;
-        isActive: boolean;
-        id: number;
         CreatedAt: Date;
         UpdatedAt: Date;
+        isActive: boolean;
+        id: number;
     }>;
 }
