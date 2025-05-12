@@ -43,7 +43,12 @@ export declare class LoginStudentService {
         isActive: boolean;
     }>;
     findAllisActive(skip?: number, take?: number): Promise<{
-        students: {
+        students: ({
+            teacher: {
+                id: number;
+                name: string;
+            } | null;
+        } & {
             id: number;
             name: string;
             age: number;
@@ -56,7 +61,7 @@ export declare class LoginStudentService {
             CreatedAt: Date;
             UpdatedAt: Date;
             isActive: boolean;
-        }[];
+        })[];
         total: number;
     }>;
     findAllisNotActive(skip?: number, take?: number): Promise<{

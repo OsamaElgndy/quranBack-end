@@ -88,6 +88,11 @@ export class LoginStudentService {
       where: {
         isActive: true,
       },
+      include: {
+        teacher: {
+          select: { name: true, id: true }
+        }
+      },
       orderBy: {
         id: 'asc',
       },
@@ -134,6 +139,11 @@ export class LoginStudentService {
 
     const student = await this.prisma.student.findUnique({
       where: { id },
+      include: {
+        teacher: {
+          select: { name: true, id: true }
+        }
+      },
     });
 
     if (!student) {

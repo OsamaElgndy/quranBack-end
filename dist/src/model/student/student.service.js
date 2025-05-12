@@ -87,6 +87,11 @@ let LoginStudentService = class LoginStudentService {
             where: {
                 isActive: true,
             },
+            include: {
+                teacher: {
+                    select: { name: true, id: true }
+                }
+            },
             orderBy: {
                 id: 'asc',
             },
@@ -127,6 +132,11 @@ let LoginStudentService = class LoginStudentService {
     async findOne(id) {
         const student = await this.prisma.student.findUnique({
             where: { id },
+            include: {
+                teacher: {
+                    select: { name: true, id: true }
+                }
+            },
         });
         if (!student) {
             throw new common_2.HttpException('لم يتم العثور على الطالب', 404);
