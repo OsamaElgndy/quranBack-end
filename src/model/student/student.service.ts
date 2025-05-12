@@ -28,15 +28,15 @@ export class LoginStudentService {
         isActive: true,
 
       },
-      
+
       include: {
         teacher: {
           select: { name: true, id: true }
         }
       },
       orderBy: {
-        ranking:"asc",
-        degree:"desc"
+        ranking: "asc",
+        degree: "desc"
 
       },
       skip,
@@ -47,7 +47,7 @@ export class LoginStudentService {
         levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
       },
-  
+
     });
     return {
       students,
@@ -117,7 +117,7 @@ export class LoginStudentService {
       orderBy: {
         id: 'asc',
       },
-  
+
       skip,
       take,
     });
@@ -167,7 +167,12 @@ export class LoginStudentService {
     }
     return this.prisma.student.update({
       where: { id },
-      data: updateStudentDto,
+      data: {
+        ...updateStudentDto,
+        teacher: {
+          connect: { id: updateStudentDto.teacher?.id, name: updateStudentDto.teacher?.name },
+        }
+      },
     });
   }
 

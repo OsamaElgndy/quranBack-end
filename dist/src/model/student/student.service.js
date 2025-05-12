@@ -154,7 +154,12 @@ let LoginStudentService = class LoginStudentService {
         }
         return this.prisma.student.update({
             where: { id },
-            data: updateStudentDto,
+            data: {
+                ...updateStudentDto,
+                teacher: {
+                    connect: { id: updateStudentDto.teacher?.id, name: updateStudentDto.teacher?.name },
+                }
+            },
         });
     }
     async change(id) {

@@ -9,9 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateStudentDto = exports.FindAllStudentsDto = exports.CreateStudentDto = void 0;
+exports.UpdateStudentDto = exports.FindAllStudentsDto = exports.CreateStudentDto = exports.TeacherDto = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const class_validator_1 = require("class-validator");
+class TeacherDto {
+    id;
+    name;
+}
+exports.TeacherDto = TeacherDto;
 class CreateStudentDto {
     name;
     age;
@@ -20,9 +25,6 @@ class CreateStudentDto {
     address;
     degree;
     ranking;
-    teacherId;
-    CreatedAt;
-    UpdatedAt;
     isActive;
 }
 exports.CreateStudentDto = CreateStudentDto;
@@ -78,21 +80,6 @@ __decorate([
 ], CreateStudentDto.prototype, "ranking", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsInt)(),
-    __metadata("design:type", Number)
-], CreateStudentDto.prototype, "teacherId", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateStudentDto.prototype, "CreatedAt", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], CreateStudentDto.prototype, "UpdatedAt", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsIn)([true, false]),
     __metadata("design:type", Boolean)
 ], CreateStudentDto.prototype, "isActive", void 0);
@@ -118,6 +105,23 @@ __decorate([
     __metadata("design:type", String)
 ], FindAllStudentsDto.prototype, "levelQuran", void 0);
 class UpdateStudentDto extends (0, mapped_types_1.PartialType)(CreateStudentDto) {
+    teacher;
+    CreatedAt;
+    UpdatedAt;
 }
 exports.UpdateStudentDto = UpdateStudentDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", TeacherDto)
+], UpdateStudentDto.prototype, "teacher", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateStudentDto.prototype, "CreatedAt", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateStudentDto.prototype, "UpdatedAt", void 0);
 //# sourceMappingURL=create-student.dto.js.map

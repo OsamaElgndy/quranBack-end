@@ -12,7 +12,10 @@ import {
   IsBoolean,
 } from 'class-validator';
 
-
+export class TeacherDto {
+  id: number;
+  name: string;
+}
 
 export class CreateStudentDto {
   @IsString()
@@ -61,17 +64,7 @@ export class CreateStudentDto {
   @IsInt()
   ranking?: number;
 
-  @IsOptional()
-  @IsInt()
-  teacherId?: number;
 
-  @IsOptional()
-  @IsString() 
-  CreatedAt?: string;
-  
-  @IsOptional()
-  @IsString()
-  UpdatedAt?: string;
   
   @IsOptional()
   @IsIn([true, false]) 
@@ -99,4 +92,15 @@ export class FindAllStudentsDto {
 }
 
 
-export class UpdateStudentDto extends PartialType(CreateStudentDto) {}
+export class UpdateStudentDto extends PartialType(CreateStudentDto) {
+  @IsOptional()
+  teacher?: TeacherDto;
+  @IsOptional()
+  @IsString() 
+  CreatedAt?: string;
+  @IsOptional()
+  @IsString()
+  UpdatedAt?: string;
+
+  
+}
