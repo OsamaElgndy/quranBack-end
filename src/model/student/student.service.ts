@@ -35,7 +35,9 @@ export class LoginStudentService {
         }
       },
       orderBy: {
-       ranking:"asc"
+        ranking:"asc",
+        degree:"desc"
+
       },
       skip,
       take,
@@ -87,7 +89,7 @@ export class LoginStudentService {
         isActive: true,
       },
       orderBy: {
-        id: 'desc',
+        id: 'asc',
       },
       skip,
       take,
@@ -108,7 +110,7 @@ export class LoginStudentService {
         isActive: false,
       },
       orderBy: {
-        id: 'desc',
+        id: 'asc',
       },
   
       skip,

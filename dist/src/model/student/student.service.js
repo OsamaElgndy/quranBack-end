@@ -40,7 +40,8 @@ let LoginStudentService = class LoginStudentService {
                 }
             },
             orderBy: {
-                ranking: "asc"
+                ranking: "asc",
+                degree: "desc"
             },
             skip,
             take,
@@ -87,7 +88,7 @@ let LoginStudentService = class LoginStudentService {
                 isActive: true,
             },
             orderBy: {
-                id: 'desc',
+                id: 'asc',
             },
             skip,
             take,
@@ -108,7 +109,7 @@ let LoginStudentService = class LoginStudentService {
                 isActive: false,
             },
             orderBy: {
-                id: 'desc',
+                id: 'asc',
             },
             skip,
             take,
