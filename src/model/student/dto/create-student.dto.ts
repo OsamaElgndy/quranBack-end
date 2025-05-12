@@ -39,6 +39,7 @@ export class CreateStudentDto {
   )
   levelQuran: string;
 
+  @IsString()
   @IsOptional()
   @Matches(/^\d{11}$/, {
     message: 'رقم الهاتف يجب أن يتكون من 11 رقم',

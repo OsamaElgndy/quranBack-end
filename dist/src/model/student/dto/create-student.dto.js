@@ -51,6 +51,7 @@ __decorate([
     __metadata("design:type", String)
 ], CreateStudentDto.prototype, "levelQuran", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.Matches)(/^\d{11}$/, {
         message: 'رقم الهاتف يجب أن يتكون من 11 رقم',
