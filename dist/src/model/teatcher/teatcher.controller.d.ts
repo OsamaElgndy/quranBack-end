@@ -1,50 +1,47 @@
 import { TeatcherService } from './teatcher.service';
-import { UpdateTeatcherDto } from './dto/update-teatcher.dto';
 export declare class TeatcherController {
     private readonly teatcherService;
     constructor(teatcherService: TeatcherService);
     findByName(): Promise<{
-        id: number;
         name: string;
+        id: number;
     }[]>;
     findAll(): Promise<({
         students: {
-            id: number;
             name: string;
             age: number;
             levelQuran: string;
-            address: string;
             phoneWhatsapp: string | null;
+            address: string;
             degree: number | null;
             ranking: number | null;
+            isActive: boolean;
             teacherId: number | null;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
+            id: number;
         }[];
     } & {
-        id: number;
         name: string;
+        id: number;
     })[]>;
     findOne(id: string): import(".prisma/client").Prisma.Prisma__TeacherClient<({
         students: {
-            id: number;
             name: string;
             age: number;
             levelQuran: string;
-            address: string;
             phoneWhatsapp: string | null;
+            address: string;
             degree: number | null;
             ranking: number | null;
+            isActive: boolean;
             teacherId: number | null;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
+            id: number;
         }[];
     } & {
-        id: number;
         name: string;
+        id: number;
     }) | null, null, import("@prisma/client/runtime/library").DefaultArgs, import(".prisma/client").Prisma.PrismaClientOptions>;
-    update(id: string, updateTeatcherDto: UpdateTeatcherDto): string;
-    remove(id: string): string;
 }

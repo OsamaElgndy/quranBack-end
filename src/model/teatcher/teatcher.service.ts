@@ -35,17 +35,10 @@ async findName() {
       include: { students: true }
     });
     if(!teatcher) throw new HttpException('لم يتم العثور على المعلم', 404);
-      
     return teatcher;
     
     
   }
 
-  update(id: number, updateTeatcherDto: UpdateTeatcherDto) {
-    return `This action updates a #${id} teatcher`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} teatcher`;
-  }
+  
 }

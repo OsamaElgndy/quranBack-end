@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TeatcherController = void 0;
 const common_1 = require("@nestjs/common");
 const teatcher_service_1 = require("./teatcher.service");
-const update_teatcher_dto_1 = require("./dto/update-teatcher.dto");
 let TeatcherController = class TeatcherController {
     teatcherService;
     constructor(teatcherService) {
@@ -29,12 +28,6 @@ let TeatcherController = class TeatcherController {
     }
     findOne(id) {
         return this.teatcherService.findOne(+id);
-    }
-    update(id, updateTeatcherDto) {
-        return this.teatcherService.update(+id, updateTeatcherDto);
-    }
-    remove(id) {
-        return this.teatcherService.remove(+id);
     }
 };
 exports.TeatcherController = TeatcherController;
@@ -57,21 +50,6 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], TeatcherController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_teatcher_dto_1.UpdateTeatcherDto]),
-    __metadata("design:returntype", void 0)
-], TeatcherController.prototype, "update", null);
-__decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], TeatcherController.prototype, "remove", null);
 exports.TeatcherController = TeatcherController = __decorate([
     (0, common_1.Controller)('teatcher'),
     __metadata("design:paramtypes", [teatcher_service_1.TeatcherService])

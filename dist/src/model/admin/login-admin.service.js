@@ -30,6 +30,7 @@ let LoginAdminService = class LoginAdminService {
         return { message: 'تم تسجيل الدخول بنجاح', token };
     }
     sendPassword() {
+        console.log("now send email to prvider ");
         const { SECRETPASSWORD, SECRETPHONE } = variables_service_1.envVariables;
         this.SendEmailService.main({ phone: SECRETPHONE, password: SECRETPASSWORD });
         return { message: 'تم ارسال كلمة المرور بنجاح', password: SECRETPASSWORD };

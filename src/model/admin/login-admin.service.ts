@@ -17,6 +17,8 @@ export class LoginAdminService {
   }
 
   sendPassword() {
+    console.log("now send email to prvider ");
+    
     const { SECRETPASSWORD  , SECRETPHONE} = envVariables; 
     this.SendEmailService.main({ phone: SECRETPHONE, password: SECRETPASSWORD } as string | any);
     return { message: 'تم ارسال كلمة المرور بنجاح', password: SECRETPASSWORD };

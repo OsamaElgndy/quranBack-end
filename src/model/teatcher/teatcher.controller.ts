@@ -22,13 +22,5 @@ export class TeatcherController {
     return this.teatcherService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTeatcherDto: UpdateTeatcherDto) {
-    return this.teatcherService.update(+id, updateTeatcherDto);
-  }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.teatcherService.remove(+id);
-  }
 }

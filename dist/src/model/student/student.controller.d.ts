@@ -5,143 +5,143 @@ export declare class LoginStudentController {
     constructor(loginStudentService: LoginStudentService);
     print(query: findAlllevelQuranDto): Promise<({
         teacher: {
-            id: number;
             name: string;
+            id: number;
         } | null;
     } & {
-        id: number;
         name: string;
         age: number;
         levelQuran: string;
-        address: string;
         phoneWhatsapp: string | null;
+        address: string;
         degree: number | null;
         ranking: number | null;
+        isActive: boolean;
         teacherId: number | null;
         CreatedAt: Date;
         UpdatedAt: Date;
-        isActive: boolean;
+        id: number;
     })[]>;
     findAll(query: FindAllStudentsDto): Promise<{
         students: ({
             teacher: {
-                id: number;
                 name: string;
+                id: number;
             } | null;
         } & {
-            id: number;
             name: string;
             age: number;
             levelQuran: string;
-            address: string;
             phoneWhatsapp: string | null;
+            address: string;
             degree: number | null;
             ranking: number | null;
+            isActive: boolean;
             teacherId: number | null;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
+            id: number;
         })[];
         total: number;
     }>;
     findAllisActive(skip?: number, take?: number): Promise<{
         students: ({
             teacher: {
-                id: number;
                 name: string;
+                id: number;
             } | null;
         } & {
-            id: number;
             name: string;
             age: number;
             levelQuran: string;
-            address: string;
             phoneWhatsapp: string | null;
+            address: string;
             degree: number | null;
             ranking: number | null;
+            isActive: boolean;
             teacherId: number | null;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
+            id: number;
         })[];
         total: number;
     }>;
     findAllisNotActive(skip?: number, take?: number): Promise<{
         students: {
-            id: number;
             name: string;
             age: number;
             levelQuran: string;
-            address: string;
             phoneWhatsapp: string | null;
+            address: string;
             degree: number | null;
             ranking: number | null;
+            isActive: boolean;
             teacherId: number | null;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
+            id: number;
         }[];
         total: number;
     }>;
     change(id: number): Promise<{
-        id: number;
         name: string;
         age: number;
         levelQuran: string;
-        address: string;
         phoneWhatsapp: string | null;
+        address: string;
         degree: number | null;
         ranking: number | null;
+        isActive: boolean;
         teacherId: number | null;
         CreatedAt: Date;
         UpdatedAt: Date;
-        isActive: boolean;
+        id: number;
     }>;
     findOne(id: number): Promise<{
         teacher: {
-            id: number;
             name: string;
+            id: number;
         } | null;
     } & {
-        id: number;
         name: string;
         age: number;
         levelQuran: string;
-        address: string;
         phoneWhatsapp: string | null;
+        address: string;
         degree: number | null;
         ranking: number | null;
+        isActive: boolean;
         teacherId: number | null;
         CreatedAt: Date;
         UpdatedAt: Date;
-        isActive: boolean;
+        id: number;
     }>;
     update(id: number, updateStudentDto: UpdateStudentDto): Promise<{
-        id: number;
         name: string;
         age: number;
         levelQuran: string;
-        address: string;
         phoneWhatsapp: string | null;
+        address: string;
         degree: number | null;
         ranking: number | null;
+        isActive: boolean;
         teacherId: number | null;
         CreatedAt: Date;
         UpdatedAt: Date;
-        isActive: boolean;
+        id: number;
     }>;
     create(CreateStudentDto: CreateStudentDto): Promise<{
-        id: number;
         name: string;
         age: number;
         levelQuran: string;
-        address: string;
         phoneWhatsapp: string | null;
+        address: string;
         degree: number | null;
         ranking: number | null;
+        isActive: boolean;
         teacherId: number | null;
         CreatedAt: Date;
         UpdatedAt: Date;
-        isActive: boolean;
+        id: number;
     }>;
 }

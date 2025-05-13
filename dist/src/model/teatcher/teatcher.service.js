@@ -43,12 +43,6 @@ let TeatcherService = class TeatcherService {
             throw new common_1.HttpException('لم يتم العثور على المعلم', 404);
         return teatcher;
     }
-    update(id, updateTeatcherDto) {
-        return `This action updates a #${id} teatcher`;
-    }
-    remove(id) {
-        return `This action removes a #${id} teatcher`;
-    }
 };
 exports.TeatcherService = TeatcherService;
 exports.TeatcherService = TeatcherService = __decorate([
