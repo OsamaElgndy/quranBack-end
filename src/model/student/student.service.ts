@@ -122,7 +122,6 @@ export class LoginStudentService {
 
 
   async findOne(id: number) {
-    console.log("osama elgendy  rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     const student = await this.prisma.student.findUnique({
       where: { id },
      include:{teacher: true}

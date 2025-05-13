@@ -11,6 +11,7 @@ export declare class CreateStudentDto {
     degree?: number;
     ranking?: number;
     isActive?: boolean;
+    teacherId?: number;
 }
 export declare class FindAllStudentsDto {
     skip?: string;
@@ -21,6 +22,5 @@ declare const UpdateStudentDto_base: import("@nestjs/mapped-types").MappedType<P
 export declare class UpdateStudentDto extends UpdateStudentDto_base {
     CreatedAt?: string;
     UpdatedAt?: string;
-    teacherId?: number;
 }
 export {};

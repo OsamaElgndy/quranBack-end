@@ -26,6 +26,7 @@ class CreateStudentDto {
     degree;
     ranking;
     isActive;
+    teacherId;
 }
 exports.CreateStudentDto = CreateStudentDto;
 __decorate([
@@ -83,6 +84,10 @@ __decorate([
     (0, class_validator_1.IsIn)([true, false]),
     __metadata("design:type", Boolean)
 ], CreateStudentDto.prototype, "isActive", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], CreateStudentDto.prototype, "teacherId", void 0);
 class FindAllStudentsDto {
     skip;
     take;
@@ -107,7 +112,6 @@ __decorate([
 class UpdateStudentDto extends (0, mapped_types_1.PartialType)(CreateStudentDto) {
     CreatedAt;
     UpdatedAt;
-    teacherId;
 }
 exports.UpdateStudentDto = UpdateStudentDto;
 __decorate([
@@ -120,8 +124,4 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateStudentDto.prototype, "UpdatedAt", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", Number)
-], UpdateStudentDto.prototype, "teacherId", void 0);
 //# sourceMappingURL=create-student.dto.js.map

@@ -19,8 +19,8 @@ export declare class TeatcherController {
             isActive: boolean;
             CreatedAt: Date;
             UpdatedAt: Date;
-            id: number;
             teacherId: number | null;
+            id: number;
         }[];
     } & {
         name: string;

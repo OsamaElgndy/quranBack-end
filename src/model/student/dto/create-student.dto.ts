@@ -6,10 +6,8 @@ import {
   Min,
   Max,
   Matches,
-  IsEnum,
   IsOptional,
   IsIn,
-  IsBoolean,
 } from 'class-validator';
 
 export class TeacherDto {
@@ -70,7 +68,8 @@ export class CreateStudentDto {
   @IsIn([true, false]) 
   isActive?: boolean;
 
-
+  @IsOptional()
+  teacherId?: number;
 
 
 }
@@ -98,7 +97,6 @@ export class UpdateStudentDto extends PartialType(CreateStudentDto) {
   @IsString()
   UpdatedAt?: string;
 
-  @IsOptional()
-  teacherId?: number;
+
   
 }

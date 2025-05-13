@@ -122,7 +122,6 @@ let LoginStudentService = class LoginStudentService {
         };
     }
     async findOne(id) {
-        console.log("osama elgendy  rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
         const student = await this.prisma.student.findUnique({
             where: { id },
             include: { teacher: true }
