@@ -22,6 +22,9 @@ let LoginStudentController = class LoginStudentController {
     constructor(loginStudentService) {
         this.loginStudentService = loginStudentService;
     }
+    print(query) {
+        return this.loginStudentService.print(query);
+    }
     findAll(query) {
         const { skip = 0, take = 10, ...levelQuran } = query;
         return this.loginStudentService.findAll(+skip, +take, levelQuran);
@@ -46,6 +49,13 @@ let LoginStudentController = class LoginStudentController {
     }
 };
 exports.LoginStudentController = LoginStudentController;
+__decorate([
+    (0, common_1.Get)("print"),
+    __param(0, (0, common_1.Query)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_student_dto_1.findAlllevelQuranDto]),
+    __metadata("design:returntype", void 0)
+], LoginStudentController.prototype, "print", null);
 __decorate([
     (0, common_1.Get)('findAll'),
     __param(0, (0, common_1.Query)()),

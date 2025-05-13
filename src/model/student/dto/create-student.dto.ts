@@ -74,16 +74,20 @@ export class CreateStudentDto {
 
 }
 
-export class FindAllStudentsDto {
+export class findAlllevelQuranDto {
+  @IsOptional()
+  @IsString()
+  levelQuran?: string;
+
+}
+export class  FindAllStudentsDto  extends findAlllevelQuranDto {
   @IsOptional()
   @IsString()
   skip?: string;
   @IsOptional()
   @IsString()
   take?: string;
-  @IsOptional()
-  @IsString()
-  levelQuran?: string;
+
 
 }
 

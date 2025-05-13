@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateStudentDto, FindAllStudentsDto, UpdateStudentDto } from './dto/create-student.dto'
+import { CreateStudentDto, findAlllevelQuranDto, FindAllStudentsDto, UpdateStudentDto } from './dto/create-student.dto'
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpException } from '@nestjs/common';
 import { google } from 'googleapis';
@@ -21,13 +21,15 @@ export class LoginStudentService {
     return google.sheets({ version: 'v4', auth: client as any });
   }
 
+
+
   async findAll(skip: number = 0, take: number = 10, levelQuran?: FindAllStudentsDto) {
     const students = await this.prisma.student.findMany({
       where: {
         levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
       },
-      include:{teacher: true},
+      include: { teacher: true },
       orderBy: [
         { ranking: 'asc' },
         { degree: 'desc' },
@@ -80,7 +82,7 @@ export class LoginStudentService {
       where: {
         isActive: true,
       },
-      include:{teacher: true},
+      include: { teacher: true },
       orderBy: {
         id: 'asc',
       },
@@ -124,7 +126,7 @@ export class LoginStudentService {
   async findOne(id: number) {
     const student = await this.prisma.student.findUnique({
       where: { id },
-     include:{teacher: true}
+      include: { teacher: true }
     });
 
     if (!student) {
@@ -165,4 +167,19 @@ export class LoginStudentService {
     });
   }
 
+  async print(query: findAlllevelQuranDto) {
+    return  await this.prisma.student.findMany({
+      where: {
+        levelQuran: query.levelQuran || undefined,
+        isActive: true,
+      },
+      include: {
+        teacher: true,
+      },
+      orderBy: [
+        {id: 'asc' },
+      ]
+    });
+  }
+  
 }

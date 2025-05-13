@@ -17,9 +17,9 @@ export declare class TeatcherService {
             degree: number | null;
             ranking: number | null;
             isActive: boolean;
+            teacherId: number | null;
             CreatedAt: Date;
             UpdatedAt: Date;
-            teacherId: number | null;
             id: number;
         }[];
     } & {

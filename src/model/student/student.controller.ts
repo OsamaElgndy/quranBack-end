@@ -1,12 +1,17 @@
 
 import {Req, Param, Controller,  Post, Body, Get, ValidationPipe, UsePipes, Patch, Query } from '@nestjs/common';
 import { LoginStudentService } from './student.service';
-import { CreateStudentDto ,FindAllStudentsDto, UpdateStudentDto } from './dto/create-student.dto';
+import { CreateStudentDto ,findAlllevelQuranDto,FindAllStudentsDto, UpdateStudentDto } from './dto/create-student.dto';
 import { ParseIntPipe } from '@nestjs/common';
 @Controller('login-student')
 export class LoginStudentController {
   constructor(private readonly loginStudentService: LoginStudentService ) {}
 
+
+  @Get("print")
+  print(@Query() query: findAlllevelQuranDto){
+    return this.loginStudentService.print(query);
+  }
   @Get('findAll')
   findAll(@Query() query: FindAllStudentsDto) {
     const { skip = 0, take = 10, ...levelQuran } = query;

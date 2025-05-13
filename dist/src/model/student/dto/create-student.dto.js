@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateStudentDto = exports.FindAllStudentsDto = exports.CreateStudentDto = exports.TeacherDto = void 0;
+exports.UpdateStudentDto = exports.FindAllStudentsDto = exports.findAlllevelQuranDto = exports.CreateStudentDto = exports.TeacherDto = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const class_validator_1 = require("class-validator");
 class TeacherDto {
@@ -88,10 +88,18 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateStudentDto.prototype, "teacherId", void 0);
-class FindAllStudentsDto {
+class findAlllevelQuranDto {
+    levelQuran;
+}
+exports.findAlllevelQuranDto = findAlllevelQuranDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], findAlllevelQuranDto.prototype, "levelQuran", void 0);
+class FindAllStudentsDto extends findAlllevelQuranDto {
     skip;
     take;
-    levelQuran;
 }
 exports.FindAllStudentsDto = FindAllStudentsDto;
 __decorate([
@@ -104,11 +112,6 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], FindAllStudentsDto.prototype, "take", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)(),
-    __metadata("design:type", String)
-], FindAllStudentsDto.prototype, "levelQuran", void 0);
 class UpdateStudentDto extends (0, mapped_types_1.PartialType)(CreateStudentDto) {
     CreatedAt;
     UpdatedAt;
