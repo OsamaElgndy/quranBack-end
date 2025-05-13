@@ -16,11 +16,11 @@ export declare class TeatcherController {
             address: string;
             degree: number | null;
             ranking: number | null;
-            teacherId: number | null;
+            isActive: boolean;
             CreatedAt: Date;
             UpdatedAt: Date;
-            isActive: boolean;
             id: number;
+            teacherId: number | null;
         }[];
     } & {
         name: string;

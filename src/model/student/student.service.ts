@@ -34,11 +34,10 @@ export class LoginStudentService {
           select: { name: true, id: true }
         }
       },
-      orderBy: {
-        ranking: "asc",
-        degree: "desc"
-
-      },
+      orderBy: [
+        { ranking: 'asc' },
+        { degree: 'desc' },
+      ],
       skip,
       take,
     });
