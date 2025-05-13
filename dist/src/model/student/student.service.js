@@ -158,9 +158,10 @@ let LoginStudentService = class LoginStudentService {
         });
     }
     async print(query) {
+        const { levelQuran } = query;
         return await this.prisma.student.findMany({
             where: {
-                levelQuran: query.levelQuran || undefined,
+                levelQuran: levelQuran || undefined,
                 isActive: true,
             },
             include: {

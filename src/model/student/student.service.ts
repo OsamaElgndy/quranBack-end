@@ -168,18 +168,19 @@ export class LoginStudentService {
   }
 
   async print(query: findAlllevelQuranDto) {
-    return  await this.prisma.student.findMany({
+    const { levelQuran } = query
+    return await this.prisma.student.findMany({
       where: {
-        levelQuran: query.levelQuran || undefined,
+        levelQuran: levelQuran || undefined,
         isActive: true,
       },
       include: {
         teacher: true,
       },
       orderBy: [
-        {id: 'asc' },
+        { id: 'asc' },
       ]
     });
   }
-  
+
 }
