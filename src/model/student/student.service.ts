@@ -40,7 +40,6 @@ export class LoginStudentService {
         levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
       },
-
     });
     return {
       students,
@@ -106,7 +105,6 @@ export class LoginStudentService {
       orderBy: {
         id: 'asc',
       },
-
       skip,
       take,
     });
@@ -116,7 +114,6 @@ export class LoginStudentService {
         isActive: false,
       },
     });
-
     return {
       students,
       total
@@ -151,9 +148,6 @@ export class LoginStudentService {
       where: { id },
       data: {
         ...updateStudentDto,
-        teacher: {
-          connect: { id: updateStudentDto.teacher?.id, name: updateStudentDto.teacher?.name },
-        }
       },
     });
   }
@@ -171,8 +165,5 @@ export class LoginStudentService {
       },
     });
   }
-
-
-
 
 }

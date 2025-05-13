@@ -143,9 +143,6 @@ let LoginStudentService = class LoginStudentService {
             where: { id },
             data: {
                 ...updateStudentDto,
-                teacher: {
-                    connect: { id: updateStudentDto.teacher?.id, name: updateStudentDto.teacher?.name },
-                }
             },
         });
     }

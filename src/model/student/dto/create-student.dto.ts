@@ -79,12 +79,9 @@ export class FindAllStudentsDto {
   @IsOptional()
   @IsString()
   skip?: string;
-
   @IsOptional()
   @IsString()
   take?: string;
-
-
   @IsOptional()
   @IsString()
   levelQuran?: string;
@@ -93,8 +90,7 @@ export class FindAllStudentsDto {
 
 
 export class UpdateStudentDto extends PartialType(CreateStudentDto) {
-  @IsOptional()
-  teacher?: TeacherDto;
+
   @IsOptional()
   @IsString() 
   CreatedAt?: string;
@@ -102,5 +98,7 @@ export class UpdateStudentDto extends PartialType(CreateStudentDto) {
   @IsString()
   UpdatedAt?: string;
 
+  @IsOptional()
+  teacherId?: number;
   
 }

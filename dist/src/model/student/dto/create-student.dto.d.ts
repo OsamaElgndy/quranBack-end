@@ -19,8 +19,8 @@ export declare class FindAllStudentsDto {
 }
 declare const UpdateStudentDto_base: import("@nestjs/mapped-types").MappedType<Partial<CreateStudentDto>>;
 export declare class UpdateStudentDto extends UpdateStudentDto_base {
-    teacher?: TeacherDto;
     CreatedAt?: string;
     UpdatedAt?: string;
+    teacherId?: number;
 }
 export {};

@@ -105,15 +105,11 @@ __decorate([
     __metadata("design:type", String)
 ], FindAllStudentsDto.prototype, "levelQuran", void 0);
 class UpdateStudentDto extends (0, mapped_types_1.PartialType)(CreateStudentDto) {
-    teacher;
     CreatedAt;
     UpdatedAt;
+    teacherId;
 }
 exports.UpdateStudentDto = UpdateStudentDto;
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", TeacherDto)
-], UpdateStudentDto.prototype, "teacher", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)(),
@@ -124,4 +120,8 @@ __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], UpdateStudentDto.prototype, "UpdatedAt", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], UpdateStudentDto.prototype, "teacherId", void 0);
 //# sourceMappingURL=create-student.dto.js.map
