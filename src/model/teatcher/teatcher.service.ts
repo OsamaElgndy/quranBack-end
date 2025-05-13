@@ -1,11 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { UpdateTeatcherDto } from './dto/update-teatcher.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class TeatcherService {
-
   constructor(private readonly prisma: PrismaService) {}
-
 
 
 async findName() {
@@ -31,7 +29,16 @@ async findName() {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} teatcher`;
+    
+    const teatcher = this.prisma.teacher.findUnique({
+      where: { id },
+      include: { students: true }
+    });
+    if(!teatcher) throw new HttpException('لم يتم العثور على المعلم', 404);
+      
+    return teatcher;
+    
+    
   }
 
   update(id: number, updateTeatcherDto: UpdateTeatcherDto) {

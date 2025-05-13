@@ -35,7 +35,13 @@ let TeatcherService = class TeatcherService {
         return teatchers;
     }
     findOne(id) {
-        return `This action returns a #${id} teatcher`;
+        const teatcher = this.prisma.teacher.findUnique({
+            where: { id },
+            include: { students: true }
+        });
+        if (!teatcher)
+            throw new common_1.HttpException('لم يتم العثور على المعلم', 404);
+        return teatcher;
     }
     update(id, updateTeatcherDto) {
         return `This action updates a #${id} teatcher`;
