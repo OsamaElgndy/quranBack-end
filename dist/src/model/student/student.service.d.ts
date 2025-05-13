@@ -82,6 +82,11 @@ export declare class LoginStudentService {
         total: number;
     }>;
     findOne(id: number): Promise<{
+        teacher: {
+            id: number;
+            name: string;
+        } | null;
+    } & {
         id: number;
         name: string;
         age: number;
@@ -94,7 +99,7 @@ export declare class LoginStudentService {
         CreatedAt: Date;
         UpdatedAt: Date;
         isActive: boolean;
-    } | null>;
+    }>;
     update(id: number, updateStudentDto: UpdateStudentDto): Promise<{
         id: number;
         name: string;

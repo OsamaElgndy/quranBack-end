@@ -26,14 +26,8 @@ export class LoginStudentService {
       where: {
         levelQuran: levelQuran?.levelQuran || undefined,
         isActive: true,
-
       },
-
-      include: {
-        teacher: {
-          select: { name: true, id: true }
-        }
-      },
+      include:{teacher: true},
       orderBy: [
         { ranking: 'asc' },
         { degree: 'desc' },
@@ -87,11 +81,7 @@ export class LoginStudentService {
       where: {
         isActive: true,
       },
-      include: {
-        teacher: {
-          select: { name: true, id: true }
-        }
-      },
+      include:{teacher: true},
       orderBy: {
         id: 'asc',
       },
@@ -135,23 +125,16 @@ export class LoginStudentService {
 
 
   async findOne(id: number) {
-
+    console.log("osama elgendy  rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
     const student = await this.prisma.student.findUnique({
       where: { id },
-      include: {
-        teacher: {
-          select: { name: true, id: true }
-        }
-      },
+     include:{teacher: true}
     });
 
     if (!student) {
       throw new HttpException('لم يتم العثور على الطالب', 404);
     }
-    return this.prisma.student.findUnique({
-      where: { id },
-
-    });
+    return student;
   }
 
 
