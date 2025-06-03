@@ -1,7 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Param} from '@nestjs/common';
 import { TeatcherService } from './teatcher.service';
-import { CreateTeatcherDto } from './dto/create-teatcher.dto';
-import { UpdateTeatcherDto } from './dto/update-teatcher.dto';
 
 @Controller('teatcher')
 export class TeatcherController {
